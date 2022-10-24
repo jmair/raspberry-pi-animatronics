@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title=title
+    link(rel='stylesheet' href='/styles/index.css')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body
+    div.container
+      h1 HARVEY 2.0
+      div.button-grid
+        each val in [ 'happy-halloween', 'hooah', 'i-dont-think-so', 'my-bellys-full', 'want-some-candy', 'what-are-you-looking-at']
+          a(class='audio-links' href='' data-filename='normal-' + val + '.wav')=val
+          a(class='audio-links' href='' data-filename='reverb-' + val + '.wav')='reverb-' + val
+      div.gpio-grid
+        each val, key in {'Spit Candy': 37, 'Close Jaw': 38, 'Shake It': 36, '': 32, '': 7,'': 11, '': 13, '': 15}
+          if key
+            div.action 
+              span=key
+              input(type='checkbox' class='on' name='on' data-gpio=val)                                                                 
+      script(src='/js/index.js') 
